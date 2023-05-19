@@ -169,5 +169,7 @@ def main ():
             if position == input_position:
                 print (number, name, position)
 
+    print("\u001b[31mDISCLAIMER\u001b[37m: If you are wondering why some 2023 rookies aren't included it is because they have not signed their rookie contract and are not officially on the team yet")
+
 if __name__ == "__main__":
     main ()
