@@ -3,49 +3,14 @@ from bs4 import BeautifulSoup, Comment
 import re
 import warnings
 import datetime
+from teams import NFL_TEAMS
 
 # Suppresses Beautiful Soup warnings due to reading HTML as a string instead of a file
 warnings.filterwarnings("ignore", category=UserWarning)
 
-# NFL Team dictionary with team abbreviation as keys and team name as the value
-NFL_TEAMS = {
-    'CRD': 'Cardinals',
-    'ATL': 'Falcons',
-    'RAV': 'Ravens',
-    'BUF': 'Bills',
-    'CAR': 'Panthers',
-    'CHI': 'Bears',
-    'CIN': 'Bengals',
-    'CLE': 'Browns',
-    'DAL': 'Cowboys',
-    'DEN': 'Broncos',
-    'DET': 'Lions',
-    'GNB': 'Packers',
-    'HTX': 'Texans',
-    'CLT': 'Colts',
-    'JAX': 'Jaguars',
-    'KAN': 'Chiefs',
-    'RAI': 'Raiders',
-    'SDG': 'Chargers',
-    'RAM': 'Rams',
-    'MIA': 'Dolphins',
-    'MIN': 'Vikings',
-    'NWE': 'Patriots',
-    'NOR': 'Saints',
-    'NYG': 'Giants',
-    'NYJ': 'Jets',
-    'PHI': 'Eagles',
-    'PIT': 'Steelers',
-    'SFO': '49ers',
-    'SEA': 'Seahawks',
-    'TAM': 'Buccaneers',
-    'OTI': 'Titans',
-    'WAS': 'Commanders'
-}
-
 def get_roster(team_name):
     '''
-    Functions that returns a list of an NFL team's roster
+    Function that returns a list of an NFL team's roster
     '''
     roster = []
     for abbr, name in NFL_TEAMS.items():
@@ -75,9 +40,9 @@ def get_roster(team_name):
 
     # Find all comments in the soup
     comments = soup(text=lambda text: isinstance(text, Comment))
-
     # Iterate over comments and find the table within them
     for comment in comments:
+        
         comment_soup = BeautifulSoup(comment, 'html.parser')
         # Stores the table as a variable
         table = comment_soup.find('table')
@@ -169,7 +134,7 @@ def main ():
             if position == input_position:
                 print (number, name, position)
 
-    print("\u001b[31mDISCLAIMER\u001b[37m: If you are wondering why some 2023 rookies aren't included it is because they have not signed their rookie contract and are not officially on the team yet")
+    print("\u001b[31m" + "DISCLAIMER" + "\u001b[37m" + ": If you are wondering why some 2023 rookies aren't included it is because they have not signed their rookie contract and are not officially on the team yet")
 
 if __name__ == "__main__":
     main ()
