@@ -33,3 +33,15 @@ NFL_TEAMS = {
     'OTI': 'Titans',
     'WAS': 'Commanders'
 }
+
+# Tuple that stores statistic name, abbreviation, link, and column number
+OPTIONS = (
+    ("Passes Completed", ("pass_cmp", "passing.htm#passing::", 7)),
+    ("Passes Attempted", ("pass_att",  "passing.htm#passing::", 8)),
+    ("Completion Percentage", ("pass_cmp_perc",  "passing.htm#passing::", 9)),
+    ('Passing Yards', ('pass_yds',  "passing.htm#passing::", 10)),
+    ('Passing Touchdowns', ('pass_td',  "passing.htm#passing::", 11)),
+    ('Passing Interceptions', ('pass_int',  "passing.htm#passing::", 13)),
+    ('Passer Rating', ('pass_rating',  "passing.htm#passing::", 22)),
+    ('QBR', ('qbr', "passing.htm#passing::", 23))
+)

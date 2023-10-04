@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup, Comment
 import re
 import warnings
 import datetime
-from teams import NFL_TEAMS
+from enums import NFL_TEAMS
 
 # Suppresses Beautiful Soup warnings due to reading HTML as a string instead of a file
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -119,6 +119,8 @@ def main ():
     '''
     input_team = input ("Enter Team Name: ")
     input_position = input ("Enter Position or 'All' for all: ")
+    if input_position == "":
+        input_position = "All"
     roster = get_roster (input_team)
 
     for player in roster:

@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup, Comment
 import re
 import warnings
 import datetime
-from teams import NFL_TEAMS
+from enums import NFL_TEAMS
 
 # Suppresses Beautiful Soup warnings due to reading HTML as a string instead of a file
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -109,22 +109,22 @@ def main ():
     for game in team_schedule:
         print (game)
 
-    # for game in team_schedule:
-    #     week = game['week']
-    #     date = game['date']
-    #     time = game['time']
-    #     opponent = game['opponent']
-    #     location = game['location']
-    #     team_score = game['team_score']
-    #     opponent_score = game['opponent_score']
+    for game in team_schedule:
+        week = game['week']
+        date = game['date']
+        time = game['time']
+        opponent = game['opponent']
+        location = game['location']
+        team_score = game['team_score']
+        opponent_score = game['opponent_score']
 
-    #     if week_number == "All":
-    #         print ("Week: " + week + " - " + date + ", " + time, sep="\n")
-    #     else:
-    #         if week == week_number:
-    #             print ("Week: " + week + " - " + date + ", " + time, sep="\n")
-    #         else:
-    #             continue
+        if week_number == "All":
+            print ("Week " + week + " - " + date + ", " + time, sep="\n")
+        else:
+            if week == week_number:
+                print ("Week " + week + " - " + date + ", " + time, sep="\n")
+            else:
+                continue
 
 main ()
 
